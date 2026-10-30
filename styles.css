@@ -366,3 +366,16 @@ button { font: inherit; color: inherit; cursor: pointer; }
   .band__win { clip-path: none; }
   .band__img { transform: none; }
 }
+
+/* round 2 */
+.field { grid-template-columns: 1fr minmax(0, 11ch); }
+.field__num { font: inherit; font-family: var(--f-display); font-weight: 700; font-size: var(--s-state); text-align: right; background: transparent; border: 0; border-bottom: 2px solid var(--ink); border-radius: 0; padding: 0 0 2px; width: 100%; min-width: 0; color: var(--ink); }
+.field__num:focus { outline: 0; border-color: var(--accent); }
+.pairs input[aria-invalid="true"], .field__num[aria-invalid="true"] { border-color: #b3261e; background: #fbeceb; }
+.calc__err { min-height: 1.4em; color: #b3261e; font-weight: 500; font-size: var(--s-small); }
+.out__pay { font-size: var(--s-small); margin-top: 6px; }
+.calc__out.is-neg { background: var(--accent); }
+.frag[inert] { visibility: hidden; }
+.q, .sec, .stages, .foot { scroll-margin-top: 56px; }
+.ui__check { padding-right: 0; }
+.frag[data-i="2"] .ui__check { padding-right: 74px; }

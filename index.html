@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>INSAL Consulting — компания в Китае и Гонконге: сначала расчёт</title>
+<title>Регистрация компаний в Китае и Гонконге — INSAL Consulting</title>
 <meta name="description" content="Помогаем селлерам Wildberries и Ozon и предпринимателям, работающим с Китаем, посчитать выгоду от компании в Китае или Гонконге, проверить модель на тесте и только потом зарегистрировать компанию.">
 <meta name="theme-color" content="#dfdedb">
 <meta property="og:title" content="INSAL Consulting — сначала расчёт, потом компания">
@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<script>document.documentElement.classList.add('js')</script>
+<script>document.documentElement.classList.add('js');setTimeout(function(){if(!window.__ok){document.documentElement.classList.remove('js')}},3500)</script>
 </head>
 <body>
 
@@ -63,10 +63,10 @@
     </h1>
   </div>
   <div class="hero__foot">
-    <p class="hero__sub">Компания в Китае или Гонконге — для селлеров Wildberries и Ozon, импортёров и тех, кто работает с китайскими поставщиками. Сначала считаем, выгодно ли это именно вам, и только потом регистрируем.</p>
+    <p class="hero__sub">Регистрация компаний в Китае и Гонконге для селлеров Wildberries и Ozon, импортёров и тех, кто работает с китайскими поставщиками. Сначала считаем, есть ли смысл именно вам, и только потом регистрируем.</p>
     <div class="hero__act">
       <a class="btn" href="#calc"><span class="btn__t">Рассчитать разницу</span></a>
-      <a class="link" href="https://t.me/insal_tovary_kitai" target="_blank" rel="noopener">Telegram-канал</a>
+      <a class="link" href="#contact" data-topic="Хочу обсудить регистрацию компании">Обсудить регистрацию</a>
     </div>
   </div>
 </section>
@@ -94,37 +94,42 @@
 <!-- CALCULATOR -->
 <section class="sec sec--calc" id="calc" aria-labelledby="h-calc">
   <div class="wrap">
-    <h2 class="head" id="h-calc">Прикиньте разницу на своих цифрах</h2>
+    <h2 class="head" id="h-calc">Расчёт на ваших цифрах</h2>
     <div class="calc">
-      <form class="calc__in" id="calcForm" onsubmit="return false" aria-label="Калькулятор разницы расходов">
+      <form class="calc__in" id="calcForm" novalidate aria-label="Предварительный расчёт разницы расходов">
         <div class="field">
-          <label for="c-turn">Оборот в месяц</label>
-          <output id="o-turn" class="field__val" for="c-turn">2 000 000 ₽</output>
-          <input id="c-turn" class="range" type="range" min="200000" max="20000000" step="100000" value="2000000">
+          <label for="c-turn-n">Продажи в месяц до удержаний площадки, ₽</label>
+          <input class="field__num" id="c-turn-n" type="text" inputmode="numeric" maxlength="11" autocomplete="off" value="2000000">
+          <input id="c-turn" class="range" type="range" min="200000" max="20000000" step="100000" value="2000000" aria-label="Продажи в месяц, ползунок">
         </div>
-        <div class="pairs" role="group" aria-label="Расходы в процентах от оборота">
+        <div class="pairs" role="group" aria-label="Расходы">
           <div class="pairs__h"><span></span><span>Сейчас</span><span>Через Китай или Гонконг</span></div>
-          <label class="pairs__r"><span>Комиссия площадки и реклама, %</span><input id="c-com0" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="20" aria-label="Комиссия площадки и реклама сейчас, %"><input id="c-com1" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="16" aria-label="Комиссия площадки и реклама в новой модели, %"></label>
-          <label class="pairs__r"><span>Налоги, %</span><input id="c-tax0" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="7" aria-label="Налоги сейчас, %"><input id="c-tax1" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="4" aria-label="Налоги в новой модели, %"></label>
-          <label class="pairs__r"><span>Логистика и платежи, %</span><input id="c-log0" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="8" aria-label="Логистика и платежи сейчас, %"><input id="c-log1" type="number" inputmode="decimal" min="0" max="80" step="0.5" value="8" aria-label="Логистика и платежи в новой модели, %"></label>
-          <label class="pairs__r pairs__r--one"><span>Обслуживание компании, ₽ в месяц</span><span class="pairs__dash" aria-hidden="true">—</span><input id="c-srv" type="number" inputmode="numeric" min="0" step="1000" value="30000" aria-label="Расходы на обслуживание компании, рублей в месяц"></label>
+          <label class="pairs__r"><span>Комиссия площадки, % от продаж</span><input id="c-com0" type="text" inputmode="decimal" maxlength="7" autocomplete="off" value="12" aria-label="Комиссия площадки, % от продаж, сейчас"><input id="c-com1" type="text" inputmode="decimal" maxlength="7" autocomplete="off" value="12" aria-label="Комиссия площадки, % от продаж, в новой модели"></label>
+          <label class="pairs__r"><span>Реклама, % от продаж</span><input id="c-ad0" type="text" inputmode="decimal" maxlength="7" autocomplete="off" value="10" aria-label="Реклама, % от продаж, сейчас"><input id="c-ad1" type="text" inputmode="decimal" maxlength="7" autocomplete="off" value="10" aria-label="Реклама, % от продаж, в новой модели"></label>
+          <label class="pairs__r"><span>Логистика и платежи, % от продаж</span><input id="c-log0" type="text" inputmode="decimal" maxlength="7" autocomplete="off" value="8" aria-label="Логистика и платежи, % от продаж, сейчас"><input id="c-log1" type="text" inputmode="decimal" maxlength="7" autocomplete="off" value="8" aria-label="Логистика и платежи, % от продаж, в новой модели"></label>
+          <label class="pairs__r"><span>Налоги, ₽ в месяц (из расчёта вашего бухгалтера)</span><input id="c-tax0" type="text" inputmode="decimal" maxlength="11" autocomplete="off" placeholder="не указано" aria-label="Налоги сейчас, рублей в месяц"><input id="c-tax1" type="text" inputmode="decimal" maxlength="11" autocomplete="off" placeholder="не указано" aria-label="Налоги в новой модели, рублей в месяц"></label>
+          <label class="pairs__r pairs__r--one"><span>Обслуживание компании, ₽ в месяц</span><span class="pairs__dash" aria-hidden="true">—</span><input id="c-srv" type="text" inputmode="numeric" maxlength="9" autocomplete="off" value="30000" aria-label="Обслуживание компании, рублей в месяц"></label>
+          <label class="pairs__r pairs__r--one"><span>Разовые расходы на регистрацию, ₽</span><span class="pairs__dash" aria-hidden="true">—</span><input id="c-once" type="text" inputmode="numeric" maxlength="9" autocomplete="off" placeholder="не указано" aria-label="Разовые расходы на регистрацию, рублей"></label>
         </div>
-        <p class="note">Значения в полях — пример. Подставьте свои: ставки для вашей категории и налогового режима мы назовём на разборе.</p>
+        <p class="calc__err" id="calcErr" role="alert"></p>
+        <p class="note">Значения в полях — пример для знакомства с расчётом, не тарифы площадок и не наши цены. Подставьте свои. Налоги калькулятор сам не считает: они зависят от страны, статуса и вида дохода, поэтому суммы берутся из расчёта специалиста.</p>
       </form>
 
-      <div class="calc__out" id="calcOut" aria-live="polite">
-        <p class="out__num"><span id="outNum">110 000</span> <span class="out__cur">₽</span></p>
-        <p class="out__label" id="outLabel">Разница в расходах за месяц</p>
-        <p class="out__year" id="outYear">За год: 1 320 000 ₽</p>
+      <div class="calc__out" id="calcOut">
+        <p class="out__num"><span id="outNum">−30 000</span> <span class="out__cur">₽</span></p>
+        <p class="out__label" id="outLabel">Изменение расходов за месяц</p>
+        <p class="out__year" id="outYear"></p>
         <dl class="out__list">
-          <div><dt>Комиссии и реклама</dt><dd id="d-com">+80 000 ₽</dd></div>
-          <div><dt>Налоги</dt><dd id="d-tax">+60 000 ₽</dd></div>
+          <div><dt>Комиссия площадки</dt><dd id="d-com">0 ₽</dd></div>
+          <div><dt>Реклама</dt><dd id="d-ad">0 ₽</dd></div>
           <div><dt>Логистика и платежи</dt><dd id="d-log">0 ₽</dd></div>
+          <div><dt>Налоги</dt><dd id="d-tax">не учтены</dd></div>
           <div><dt>Обслуживание компании</dt><dd id="d-srv">−30 000 ₽</dd></div>
         </dl>
-        <p class="out__verdict" id="outVerdict">При таких допущениях модель окупается.</p>
+        <p class="out__verdict" id="outVerdict" aria-live="polite"></p>
+        <p class="out__pay" id="outPay"></p>
         <button class="btn btn--inv" type="button" id="calcGo"><span class="btn__t">Разобрать мои цифры</span></button>
-        <p class="out__fine">Это прикидка на ваших допущениях, а не обещание результата. Реальная разница зависит от оборота, категории товара, комиссий, логистики и налогов.</p>
+        <p class="out__fine">Это сравнение расходов, а не прибыль: выручку, себестоимость и возвраты калькулятор не считает. Результат не обещание экономии.</p>
       </div>
     </div>
   </div>
@@ -140,17 +145,14 @@
       <div class="frags">
 
         <div class="frag is-on" data-i="0" data-ui>
-          <div class="ui__h"><b>Разбор экономики</b><span>пример</span></div>
-          <div class="ui__t">
-            <div class="ui__row ui__row--h"><span></span><span>Сейчас</span><span>Через структуру</span></div>
-            <div class="ui__row"><span>Оборот</span><span>2 000 000</span><span>2 000 000</span></div>
-            <div class="ui__row"><span>Комиссии и реклама</span><span>400 000</span><span>320 000</span></div>
-            <div class="ui__row"><span>Налоги</span><span>140 000</span><span>80 000</span></div>
-            <div class="ui__row"><span>Логистика и платежи</span><span>160 000</span><span>160 000</span></div>
-            <div class="ui__row"><span>Обслуживание</span><span>0</span><span>30 000</span></div>
-            <div class="ui__row ui__row--sum"><span>Расходы всего</span><span>700 000</span><span>590 000</span></div>
-          </div>
-          <div class="ui__foot"><span>Разница в месяц</span><b>110 000 ₽</b></div>
+          <div class="ui__h"><b>Что входит в разбор</b><span>по вашим цифрам</span></div>
+          <ul class="ui__check">
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Комиссии площадки и реклама</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Логистика и международные платежи</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Налоги в вашей и в новой модели</span></li>
+            <li><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M4 10.5l4 4 8-9" fill="none" stroke="currentColor" stroke-width="2.4"/></svg><span>Обслуживание компании и разовые расходы</span></li>
+          </ul>
+          <p class="ui__fine">Итог: сравниваем расходы двух моделей и говорим, есть ли смысл идти дальше.</p>
         </div>
 
         <div class="frag" data-i="1" data-ui>
@@ -194,7 +196,7 @@
         <span class="track__bg"></span><span class="track__fill" id="trackFill"></span>
         <input class="range range--stage" id="stageRange" type="range" min="0" max="3" step="1" value="0" aria-label="Этап работы" aria-valuetext="Расчёт">
       </div>
-      <div class="stops" id="stops">
+      <div class="stops" id="stops" role="group" aria-label="Этапы работы">
         <button type="button" class="is-on" data-i="0">Расчёт</button>
         <button type="button" data-i="1">Тест</button>
         <button type="button" data-i="2">Регистрация</button>
@@ -213,14 +215,14 @@
       <span class="pl">за три месяца</span>
     </h2>
     <div class="price__row">
-      <p class="lead price__sub">Тест модели: вы работаете через нашу инфраструктуру, без своей компании: проверяете цифры на практике и только после этого решаете, регистрировать ли свою.</p>
+      <p class="lead price__sub">Тест модели: вы работаете через нашу инфраструктуру, без своей компании, проверяете цифры на практике и только после этого решаете, регистрировать ли свою. 30 000 ₽ — стоимость теста, а не всех расходов бизнеса: закупка товара, логистика, реклама и комиссии площадки считаются отдельно. Продавца по договору, порядок выплат и завершение теста фиксируем до оплаты.</p>
       <a class="btn price__btn" href="#contact" data-topic="Хочу пройти тест модели (30 000 ₽ за 3 месяца)"><span class="btn__t">Хочу пройти тест</span></a>
     </div>
     <dl class="plist">
-      <div class="plist__r"><dt>Регистрация компании в Китае или Гонконге</dt><dd>ориентир $2 500, зависит от юрисдикции и задачи</dd></div>
+      <div class="plist__r"><dt>Регистрация компании в Китае или Гонконге</dt><dd>ориентир $2 500; состав и цену для вашей юрисдикции называем до оплаты</dd></div>
       <div class="plist__r"><dt>Помощь с организацией дропшиппинга</dt><dd>$500</dd></div>
       <div class="plist__r"><dt>Индивидуальный разбор экономики</dt><dd>стоимость и условия уточняем</dd></div>
-      <div class="plist__r"><dt>Банковские счета и международные платежи</dt><dd>индивидуальный расчёт</dd></div>
+      <div class="plist__r"><dt>Содействие с банковским счётом и международными платежами</dt><dd>индивидуальный расчёт; открытие счёта не гарантируем</dd></div>
       <div class="plist__r"><dt>Бухгалтерское, налоговое и корпоративное сопровождение</dt><dd>индивидуальный расчёт</dd></div>
     </dl>
   </div>
@@ -253,7 +255,7 @@
       </details>
       <details class="q" name="faq">
         <summary><span>Можно ли работать с Ozon Global и Global Wildberries?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2"/></svg></summary>
-        <div class="q__a"><p>Да, мы организуем работу через международные программы маркетплейсов, включая Ozon Global и другие доступные площадки. Условия площадок меняются, поэтому актуальные требования уточняем на разборе.</p></div>
+        <div class="q__a"><p>Мы организуем работу через международную программу Ozon Global и другие доступные площадки. Условия Wildberries для иностранных продавцов зависят от страны и меняются, поэтому актуальные правила по WB уточняем отдельно на разборе, до оплаты.</p></div>
       </details>
       <details class="q" name="faq">
         <summary><span>Можно ли гражданину РФ открыть корпоративный счёт в китайском банке?</span><svg viewBox="0 0 20 20" aria-hidden="true"><path d="M3 7l7 7 7-7" fill="none" stroke="currentColor" stroke-width="2"/></svg></summary>
@@ -274,25 +276,25 @@
       <h2 class="head" id="h-contact">Расскажите о бизнесе, посчитаем</h2>
       <p class="lead">Оставьте контакт и пару слов о том, что продаёте и где. Свяжемся и разберём, имеет ли смысл вам этот путь.</p>
       <figure class="contact__pic">
-        <img src="img/skyline-in-shenzhen-20250327.jpg" width="1920" height="1440" alt="Небоскрёбы Шэньчжэня на закате" loading="lazy" decoding="async">
+        <img src="img/skyline-in-shenzhen-20250327.jpg" width="1920" height="1440" alt="Небоскрёбы Шэньчжэня на фоне неба" loading="lazy" decoding="async">
       </figure>
     </div>
     <form class="form" id="leadForm" novalidate>
       <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
       <div class="f">
         <label for="f-name">Как к вам обращаться</label>
-        <input id="f-name" name="name" type="text" autocomplete="name" required>
+        <input id="f-name" name="name" type="text" autocomplete="name" maxlength="80" required aria-describedby="formSt">
       </div>
       <div class="f">
         <label for="f-contact">Телефон или Telegram</label>
-        <input id="f-contact" name="contact" type="text" autocomplete="tel" placeholder="+7… или @ник" required>
+        <input id="f-contact" name="contact" type="text" autocomplete="tel" placeholder="+7… или @ник" maxlength="80" required aria-describedby="formSt">
       </div>
       <div class="f">
         <label for="f-comment">Что продаёте и на каких площадках</label>
-        <textarea id="f-comment" name="comment" rows="4" placeholder="Например: одежда, Wildberries и Ozon, оборот около 2 млн ₽ в месяц"></textarea>
+        <textarea id="f-comment" name="comment" rows="4" maxlength="1500" placeholder="Например: одежда, Wildberries и Ozon, оборот около 2 млн ₽ в месяц"></textarea>
       </div>
       <input type="hidden" name="topic" id="f-topic" value="">
-      <label class="agree"><input type="checkbox" id="f-agree" required><span>Согласен на обработку данных по <a href="privacy.html">политике конфиденциальности</a></span></label>
+      <label class="agree"><input type="checkbox" id="f-agree" name="consent" value="yes" required><span>Согласен на обработку данных по <a href="privacy.html">политике конфиденциальности</a></span></label>
       <button class="btn btn--full" type="submit"><span class="btn__t">Отправить заявку</span></button>
       <p class="form__st" id="formSt" role="status" aria-live="polite"></p>
     </form>
